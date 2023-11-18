@@ -24,7 +24,6 @@ class _SwitchThemeBtnState extends State<SwitchThemeBtn> {
       decoration: BoxDecoration(
         color: AppColors.btnBgColor,
         borderRadius: BorderRadius.circular(50),
-
       ),
       child: IconButton(onPressed: widget.changeTheme, icon: Icon(widget.themeState ? Icons.brightness_3 : Icons.brightness_4)),
     );

@@ -10,4 +10,5 @@ abstract class AppColors{
     Color(0xff06050E),
   ];
   static const Color btnBgColor = Color(0xffD9D9D9);
+  static const Color tempColor = Color(0xffA8A8A8);
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_clean_architeture/presentation/themes/app_colors.dart';
+import 'package:weather_app_clean_architeture/presentation/themes/app_fonts.dart';
 import 'package:weather_app_clean_architeture/presentation/widgets/switch_theme_btn.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:weather_app_clean_architeture/presentation/widgets/weather_row.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,13 +34,45 @@ class _HomePageState extends State<HomePage> {
       ),
         child:  Scaffold(
           backgroundColor: Colors.transparent,
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SwitchThemeBtn(changeTheme: changeTheme , themeState: themeState ),
-                Text("hello")
-              ],
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SwitchThemeBtn(changeTheme: changeTheme , themeState: themeState ),
+                      SizedBox(width: 20.w,),
+                      Text("San Francisco", style: AppFonts.s36w400.copyWith(color: Colors.white),),
+                      SizedBox(
+                        height: 20.w,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text("Clear", style: AppFonts.s24w400.copyWith(color: Colors.white),),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Image.asset("assets/img/sun1.png", width: 100, height: 100,),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text("11", style: AppFonts.s72w700.copyWith(color: Colors.white),),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text("May XX, 20XX", style: AppFonts.s22w400.copyWith(color: Colors.white),),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  WeatherRow(),
+                ],
+              ),
             ),
           ),
         )
