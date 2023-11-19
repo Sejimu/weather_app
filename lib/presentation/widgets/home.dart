@@ -38,14 +38,14 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(15.0),
             child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(height: 55,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SwitchThemeBtn(changeTheme: changeTheme , themeState: themeState ),
                       SizedBox(width: 20.w,),
-                      Text("San Francisco", style: AppFonts.s36w400.copyWith(color: Colors.white),),
+                      Text("San Francisco", style: AppFonts.s36w400.copyWith(color: Colors.white) ,),
                       SizedBox(
                         height: 20.w,
                       ),
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  Image.asset("assets/img/sun1.png", width: 100, height: 100,),
+                  Image.asset(themeState == true ? "assets/img/sun1.png" : "assets/img/moon1.png", width: 100, height: 100,),
                   SizedBox(
                     height: 10.h,
                   ),

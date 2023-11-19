@@ -13,39 +13,44 @@ class WeatherRowItem extends StatefulWidget {
 class _WeatherRowItemState extends State<WeatherRowItem> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 345.w,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Container(
-          //   height: 2,
-          //   color: Color(0xff949494),
-          // ),
-          Text(
-            "Monday",
-            style: AppFonts.s20w400.copyWith(color: Colors.white),
+    return Column(
+      children: [
+        Container(
+          width: 320.w,
+          height: 2,
+          color: Colors.grey,
+        ),
+        Container(
+          width: 345.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Monday",
+                style: AppFonts.s20w400.copyWith(color: Colors.white),
+              ),
+              SizedBox(
+                width: 70.w,
+              ),
+              Image.asset("assets/img/cloud1.png"),
+              SizedBox(
+                width: 60.w,
+              ),
+              Text(
+                "10",
+                style: AppFonts.s24w400.copyWith(color: Colors.white),
+              ),
+              SizedBox(
+                width: 20.w,
+              ),
+              Text(
+                "10",
+                style: AppFonts.s24w400.copyWith(color: AppColors.tempColor),
+              ),
+            ],
           ),
-          SizedBox(
-            width: 70.w,
-          ),
-          Image.asset("assets/img/cloud1.png"),
-          SizedBox(
-            width: 60.w,
-          ),
-          Text(
-            "10",
-            style: AppFonts.s24w400.copyWith(color: Colors.white),
-          ),
-          SizedBox(
-            width: 20.w,
-          ),
-          Text(
-            "10",
-            style: AppFonts.s24w400.copyWith(color: AppColors.tempColor),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
