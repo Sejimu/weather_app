@@ -4,6 +4,7 @@ import 'package:weather_app_clean_architeture/presentation/themes/app_fonts.dart
 import 'package:weather_app_clean_architeture/presentation/widgets/switch_theme_btn.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app_clean_architeture/presentation/widgets/weather_row.dart';
+import 'package:dio/dio.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +21,27 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       themeState = !themeState;
     });
+  }
+
+  late var weatherState;
+
+  void getWeather(String city)async{
+    var dio = Dio();
+    try{
+      var response = await dio.get("http://api.weatherapi.com/v1/current.json?key=a50262012ed646c9bb9190427231811&q=$city");
+      setState(() {
+        weatherState = response.data;
+      });
+    }catch(e){
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getWeather("Bishkek");
   }
 
   @override
@@ -45,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       SwitchThemeBtn(changeTheme: changeTheme , themeState: themeState ),
                       SizedBox(width: 20.w,),
-                      Text("San Francisco", style: AppFonts.s36w400.copyWith(color: Colors.white) ,),
+                      Text(weatherState["location"]["name"] , style: AppFonts.s36w400.copyWith(color: Colors.white) ,),
                       SizedBox(
                         height: 20.w,
                       ),
